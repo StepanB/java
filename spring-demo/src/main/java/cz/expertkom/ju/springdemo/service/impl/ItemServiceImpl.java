@@ -37,7 +37,7 @@ public class ItemServiceImpl implements ItemService {
 
 	@Override
 	public void update(Item item) {
-		itemRepository.save(item);
+//		itemRepository.save(item);
 	}
 	
 	
