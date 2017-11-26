@@ -21,6 +21,10 @@ public class ItemServiceImpl implements ItemService {
 	}
 
 	@Override
+	public Item getItem(String id) {
+		return itemRepository.getItemById(id);
+	}
+	@Override
 	public void create(Item item) {
 		itemRepository.save(item);
 	}
@@ -30,14 +34,19 @@ public class ItemServiceImpl implements ItemService {
 		return itemRepository.findAll();
 	}
 
+//	@Override
+//	public void delete(Long id) {
+//		itemRepository.delete(id);	
+//	}
+	
 	@Override
-	public void delete(Long id) {
+	public void delete(String id) {
 		itemRepository.delete(id);	
 	}
 
 	@Override
 	public void update(Item item) {
-//		itemRepository.save(item);
+		itemRepository.save(item);
 	}
 	
 	

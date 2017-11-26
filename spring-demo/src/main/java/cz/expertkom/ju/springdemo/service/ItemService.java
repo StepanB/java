@@ -8,11 +8,14 @@ public interface ItemService {
 
 	Item getItem(Long id);
 	
+	Item getItem(String id);
 	void create(Item item);
 
 	List<Item> findAll();
 	
-	void delete(Long id);
+//	void delete(Long id);
+	
+	void delete(String id);
 	
 	void update(Item item);
 }

@@ -1,5 +1,7 @@
 package cz.expertkom.ju.springdemo.api;
 
+import java.io.IOException;
+
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -14,16 +16,19 @@ import javax.ws.rs.core.Response;
 import org.apache.cxf.rs.security.cors.CrossOriginResourceSharing;
 
 import cz.expertkom.ju.interfaces.entity.Item;
+
 import cz.expertkom.ju.springdemo.dto.ItemDto;
 
 @CrossOriginResourceSharing(allowAllOrigins = true)
 public interface TestApi {
 
-	@GET
-	@Path("test/{param}")
-	@Consumes(MediaType.WILDCARD)
-	@Produces(MediaType.APPLICATION_JSON)
-	public Response test(@PathParam(value = "param") String param);
+//	@GET
+//	@Path("test/{param}")
+//	@Consumes(MediaType.WILDCARD)
+//	@Produces(MediaType.APPLICATION_JSON)
+//	public Response test(@PathParam(value = "param") String param);
+	
+	
 	
 //	puvodni
 	@GET
@@ -50,16 +55,47 @@ public interface TestApi {
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response itemsList();
 
-	@DELETE
-	@Path("items/{param}")
-	@Consumes(MediaType.WILDCARD)
-	@Produces(MediaType.APPLICATION_JSON)
-	public Response delete(@PathParam(value = "param") Long param);
+//	@DELETE
+//	@Path("items/{param}")
+//	@Consumes(MediaType.WILDCARD)
+//	@Produces(MediaType.APPLICATION_JSON)
+//	public Response delete(@PathParam(value = "param") Long param);
 		
 	@PUT
 	@Path("item/{id}")
 	@Consumes(MediaType.WILDCARD)
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response updateItem(@PathParam(value = "id") Long id, ItemDto item);
+
+
+	// MOJE
+//	@GET
+//	@Path("test/{param}")
+//	@Consumes(MediaType.WILDCARD)
+//	@Produces(MediaType.APPLICATION_JSON)
+//	public Response ukazCenu(@PathParam(value = "param") String param) throws IOException;
 	
+	@GET
+	@Path("test/{param}")
+	@Consumes(MediaType.WILDCARD)
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response ulozCenu(@PathParam(value = "param") String param) throws IOException;
+	
+	@DELETE
+	@Path("test/{param}")
+	@Consumes(MediaType.WILDCARD)
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response smazZbozi(@PathParam(value = "param") String param);
+	
+	@PUT
+	@Path("test/{id}")
+	@Consumes(MediaType.WILDCARD)
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response aktaulizujCenu(@PathParam(value = "id") String id, ItemDto item);
+	
+	@GET
+	@Path("get/{id}")
+	@Consumes(MediaType.WILDCARD)
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response rekniCenu(@PathParam(value = "id") String id) throws IOException;
 }

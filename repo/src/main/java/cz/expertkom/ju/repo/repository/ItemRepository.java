@@ -6,9 +6,11 @@ import org.springframework.stereotype.Repository;
 import cz.expertkom.ju.interfaces.entity.Item;
 
 @Repository
-public interface ItemRepository extends JpaRepository<Item, Long> {
+public interface ItemRepository extends JpaRepository<Item, String> {
 
 	Item getItemById(Long id); 
+	Item getItemById(String id); 
+	
 	
 	
 }
